@@ -1,0 +1,34 @@
+{
+  "name": "miracle-bot",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "start:ts": "ts-node index.ts",
+    "start:deno": "deno index.deno.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "url": "https://www.github.com/miracle-bot"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "axios": "^1.7.9",
+    "bad-words-next": "^3.1.1",
+    "baileys": "^6.7.9",
+    "chalk": "^4.1.2",
+    "fluent-ffmpeg": "^2.1.3",
+    "link-preview-js": "^3.0.13",
+    "moment-timezone": "^0.5.46",
+    "mongoose": "^8.9.5",
+    "mysql": "^2.18.1",
+    "node-webpmux": "^3.2.0",
+    "pino": "^7.11.0",
+    "qrcode-terminal": "^0.12.0",
+    "similarity": "^1.2.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
