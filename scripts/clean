@@ -1,0 +1,34 @@
+#!/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+const ignores = fs.existSync(path.join(__dirname,"..")) ? fs.readFileSync(path.join(__dirname,"..")).split("\n").filter(str=>str.trim()) : ''
+
+for (const dir of fs.readdirSyn(path.join(__dirname,".."))) {
+  if (/node_modules|assets/.test(dir)||ignores&&ignores.find(str=>str.split("/").filter(str=>str).length == 1 && str == dir)) continue
+  if (fs.statSync(fixed=path.join(__dirname,"..",dir)).isFile()) {
+    if (dir.endsWith(".js")) {
+      fs.rmSync(fixed)
+    }
+  } else {
+    clean(dir)
+  }
+}
+
+function clean(dir) {
+  const p = path.join(__dirname,"..")
+  for (const d of path.join(p,dir)) {
+    if (fs.statSync(fixed=path.join(p,dir,d)).isFile()||ignores&&ignores.find(str=>ignoreCheck(str,path.join(dir,d)))) {
+      if (d.endsWith(".js")) {
+        fs.rmSync(fixed)
+      }
+    } else {
+      clean(path.join(dir,d))
+    } 
+  }
+}
+
+function ignoreCheck(t,d) {
+    d=d.split("/").filter(str=>str)
+  return (t.split("/").filter(str=>str).map((str,i)=>d[i]==str).find(b=>b==false)!==false);
+}

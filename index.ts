@@ -2,6 +2,11 @@ import { spawn } from "child_process";
 import { platform } from "os";
 import { watchFile, unwatchFile, readFileSync } from "fs";
 import path from "path";
+import setup from "./src/tools/config-setup";
+import "./src/types/global";
+import "./src/tools/console";
+
+setup()
 
 let running: boolean = false;
 

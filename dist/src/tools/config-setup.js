@@ -205,4 +205,4 @@ function main() {
         console.log('Loaded Config:', global.config.getAll());
     }
 }
-module.exports = main;
+exports.default = main;
